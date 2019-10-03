@@ -34,3 +34,23 @@ select::-ms-expand {
 .backgroundGradeSelect {
     background-color: lightcoral;
 }
+
+.background2ndInstallment {
+    background-color: lightgreen;
+}
+
+.background3rdInstallment {
+    background-color: lightpink;
+}
+
+.backgroundTotal {
+    background-color: lightgray;
+}
+
+.backgroundTuition {
+    background-color: lightcyan;
+}
+
+.backgroundMinimum {
+    background-color: white;
+}
