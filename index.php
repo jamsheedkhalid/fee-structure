@@ -29,9 +29,9 @@
 
 <body>
 
-<div id='printFee' class="container" style="padding-top: 20px">
+<div id='printFee' style="padding:20px;">
     
-    <div class='row' style='width:100%'>
+    <div class='row'>
         <div class="col3">
             <h10><b>AL SANAWABAR SCHOOL </b></h10><br>
             <small> Manaseer School Road, P.o Box 1781</small><br>
@@ -39,23 +39,29 @@
             <small> www.alsanawbarschool.com</small>
         </div>
         <div class="col3">
-            <img id="logo_img" src="images/sanawbar-logo.jpeg" width="80px" height="80px">
+            <img id="logo_img" src="images/sanawbar-logo.jpeg" width="100px" height="80px">
         </div>
         <div class="col3" style="float: right;">
             <p id="feedate" style="float:right;"></p>
         </div>
     </div>
 
-    <div class='row' id='academic_year_div'>
+    <div class='row'>
         <div class='col3' id='debug'></div>
         <div class='col3'>
             <div id='label_select'>
-                <label><strong>Academic Year </strong><strong id='academic_year_label' hidden>2020 - 2021 </strong> </label>
-                <select id='academic_years' onchange='update_academic_year_label()'></select>
+                <label style="font-size:14px;" class="center"><strong>AL SANAWABAR SCHOOL - مدرسة الصنوبر الخاصة</strong></label>
+                <br>
+                <label style="font-size:20px;" class="center"><strong>Fees Structure - بنية الرسوم</strong></label>
+                <div class="center">
+                    <label><strong>Academic Year </strong><strong id='academic_year_label' hidden>2020 - 2021</strong> </label>
+                    <select id='academic_years' onchange='update_academic_year_label()'></select>
+                </div>
             </div>
         </div>
         <div class='col3'></div>
     </div>
+    <br>
     <div class='row'>
         <table id="feeTable" class="table table-striped table-bordered student-list" cellspacing="0" width="100%">
             <colgroup>
@@ -129,7 +135,7 @@
         <button onclick="addstudent()" id="addstudent" title="Add Student" class="btn btn-sm "> &#43; Add Student
         </button>
         <button type="button" class="btn btn-primary btn-sm" id='printbtn'
-            onclick="printJS({printable: 'printFee', type: 'html', documentTitle: 'Fees Structure - بُنية الرسوم', header: 'Fees Structure - بنية الرسوم', headerStyle: 'font-weight: 300px; text-align:center' ,ignoreElements: ['addstudent', 'delstudent', 'noBus','printbtn','academic_years'],targetStyles: '*',  css: 'css/print.css'})">
+            onclick="printJS({printable: 'printFee', type: 'html',ignoreElements: ['addstudent', 'delstudent', 'noBus','printbtn','academic_years'],targetStyles: '*',  css: 'css/print.css'})">
             PRINT
         </button>
     </div>
