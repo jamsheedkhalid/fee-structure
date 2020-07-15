@@ -79,19 +79,17 @@
 
                 <th class="th-sm" rowspan="2"><strong> <SPAN>TOTAL <br>المجموع </SPAN></strong>
                 </th>
-                <th class="th-sm" rowspan="2"><strong> <SPAN>TOTAL <br>TUITION FEES<br> المجموع الرسوم الدراسية </SPAN></strong>
+                <th class="th-sm" rowspan="2"><strong> <SPAN>TOTAL <br>TUITION FEES<br> مجموع الرسوم الدراسية </SPAN></strong>
                 </th>
                 <th class="th-sm" rowspan="2"><strong> <SPAN>MINIMUM <BR>1ST INSTALLMENT<br>الحد الأدنى من الدفعة الأولى</SPAN></strong>
                 </th>
             </tr>
             <tr>
-
-
-                <th class="th-sm" ><strong>TUITION FEES<br>رسوم دراسية</strong>
+                <th class="th-sm" ><strong>TUITION FEES<br>الرسوم الدراسية</strong>
                 </th>
                 <th class="th-sm"><strong>BOOKS<br>رسوم الكتب</strong>
                 </th>
-                <th class="th-sm"><strong>UNIFORMS<br>رسوم موحدة</strong>
+                <th class="th-sm"><strong>UNIFORMS<br>رسوم اللباس</strong>
                 </th>
                 <th class="th-sm"><strong>BUS<br>رسوم الحافلة</strong>
                 </th>
@@ -99,7 +97,6 @@
             </thead>
             <tbody>
             <tr>
-
                 <td>
                     <select class="browser-default custom-select backgroundGradeSelect"
                             onchange='applyfees(this.options[this.selectedIndex].text); '>
@@ -142,7 +139,7 @@
         <button onclick="addstudent()" id="addstudent" title="Add Student" class="btn btn-sm "> &#43; Add Student
         </button>
         <button type="button" class="btn btn-primary btn-sm" id='printbtn'
-                onclick="printJS({printable: 'printFee', type: 'html', documentTitle: 'Fees Structure 2019 - 2020', header: 'Fees Structure 2019 - 2020', headerStyle: 'font-weight: 300px; text-align:center' ,ignoreElements: ['addstudent', 'delstudent', 'noBus','printbtn'],targetStyles: '*',  css: 'css/print.css'})">
+            onclick="printJS({printable: 'printFee', type: 'html', documentTitle: 'Fees Structure - بُنية الرسوم', header: 'Fees Structure - بنية الرسوم', headerStyle: 'font-weight: 300px; text-align:center' ,ignoreElements: ['addstudent', 'delstudent', 'noBus','printbtn'],targetStyles: '*',  css: 'css/print.css'})">
             PRINT
         </button>
 
@@ -166,12 +163,12 @@
                 </div>
                 <div style="float:right; max-width: 600px">
                     <br>
-                    <p style="float: right;"><u>ملحوظة</u></p><br><br>
+                    <p style="float: right;"><u>ملاحظة</u></p><br><br>
                     <ul style="list-style-type:disc; text-align: right; direction:rtl;">
-                        <li>يمكن زيادة رسوم الحجز ورسوم موحدة للحافلة (رهنا بموافقة الوزارة)</li>
-                        <li>سيتم تطبيق رسوم استحقاق بقيمة 500 درهم وسيتم تعويضها مقابل الرسوم الدراسية للفصل الأول</li>
-                        <li>يجب دفع الرسوم الدراسية على 3 أقساط (3) في بداية كل الثلث</li>
-                        <li>يجب دفع رسوم النقل (إذا كانت قابلة للتطبيق) في بداية العام الدراسي</li>
+                        <li>قد يتم زيادة رسوم الكتب، اللباس، و المواصلات (وذلك بعد الحصول على موافقة الوزارة)</li>
+                        <li>سيتم استحقاق رسوم تسجيل بقيمة 500 درهم وسيتم إضافتها لاحقاً للرسوم الدراسية للفصل الأول</li>
+                        <li>يجب دفع الرسوم الدراسية على 3 أقساط (دفعة عند بداية كل فصل)</li>
+                        <li>يجب دفع رسوم المواصلات (في حال استحقاقها) في بداية العام الدراسي</li>
                     </ul>
                 </div>
             </div>
