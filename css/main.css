@@ -25,3 +25,15 @@
 .backgroundMinimum {
     background-color: white;
 }
+
+.col3 {
+    width:33.3%;
+    display: inline-block;
+}
+#logo_img {
+    vertical-align: unset!important;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+}

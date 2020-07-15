@@ -1,6 +1,6 @@
 <!doctype html>
 <head>
-    <title>Fee 2019-2020</title>
+    <title>Fee Structure</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -25,13 +25,34 @@
     <script src="js/print/print.min.js"></script>
     <link rel="stylesheet" type="text/css" href="js/print/print.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-
-
-
 </head>
+
 <body>
+
 <div id='printFee' class="container" style="padding-top: 20px">
+    
+    <div class='row' style='width:93%'>
+        <div class="col3">
+            <h10><b>AL SANAWABAR SCHOOL </b></h10><br>
+            <small> Manaseer School Road, P.o Box 1781</small><br>
+            <small> TEL: 03 76798889</small><br>
+            <small> www.alsanawbarschool.com</small>
+        </div>
+        <div class="col3">
+            <img id="logo_img" src="images/sanawbar-logo.jpeg" width="80px" height="80px">
+        </div>
+        <div class="col3" style="float: right;">
+            <p id="feedate" style="float:right;"></p>
+        </div>
     <div>
+    <div class='row'>
+        <div class='col3' id='debug'></div>
+        <div class='col3' id='academic_year_div'>
+            <label><strong>Academic Year</strong></label>
+            <select id='academic_years'></select>
+        </div>
+        <div class='col3'></div>
+    </div>
         <table id="feeTable" class="table table-striped table-bordered student-list" cellspacing="0" width="100%">
             <colgroup>
                 <col class="backgroundGradeSelect" />
@@ -42,7 +63,6 @@
                 <col class="backgroundTotal" />
                 <col class="backgroundTotal" />
                 <col style="background: #ffffff"
-
             </colgroup>
             <thead align="center">
             <tr>
@@ -163,6 +183,36 @@
 <!--java script-->
 
 <script>
+    // Today's Date
+    var date = new Date();
+    document.getElementById("feedate").innerHTML = date.toDateString();
+
+    // Initiate Academic Years dropdown
+    // function fill_academic_year(){
+    //     document.getElementById('academic_years_en_label').innerHTML = document.getElementById('academic_years_en').options[ document.getElementById('academic_years_en').selectedIndex].text
+    // }
+    
+    let yearsArray = [];
+    httpyears = new XMLHttpRequest();
+    httpyears.onreadystatechange = function () {
+        if (this.readyState === 4) {
+            let str = this.responseText;
+            yearsArray = str.split("\t");
+        }
+    };
+    httpyears.open("GET", "db/initAcademicYears.php", false);
+    httpyears.send();
+
+    let select = document.getElementById('academic_years');
+    var length = select.options.length;
+    for (i = length-1; i >= 0; i--) {
+        select.options[i] = null;
+    }
+
+    for (i = 0; i<yearsArray.length-1; i++ ) {
+        select.add(new Option(yearsArray[i]));
+    }
+
     // Add row to table
     function addstudent() {
         var newRow = jQuery("\
