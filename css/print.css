@@ -8,8 +8,7 @@ table, th, td {
 }
 th, td {
     align-content: center;
-    padding: 15px;
-    text-align: left;
+    padding: 5px;
 }
 input, select {
     max-width: 100px;
@@ -20,6 +19,8 @@ select {
     -moz-appearance: none;
     /* for Chrome */
     -webkit-appearance: none;
+    font-size: 20px;
+    text-align-last: center
 }
 
 /* For IE10 */
@@ -65,3 +66,19 @@ select::-ms-expand {
     display: block;
 
 }
+#academic_year_div {
+    /* color: rebeccapurple; */
+    font-size: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    /* margin-left: 39%; */
+}
+
+body{
+    font-size: 18px;
+}
+#academic_year_label {
+    display: inline;
+}
+#feeTable td.name, th.name {min-width: 100px!important;}

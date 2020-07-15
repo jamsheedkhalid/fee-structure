@@ -37,3 +37,9 @@
     display: block;
 
 }
+#label_select {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+#feeTable td.name, th.name {min-width: 150px!important;}

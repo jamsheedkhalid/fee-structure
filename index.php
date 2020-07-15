@@ -31,7 +31,7 @@
 
 <div id='printFee' class="container" style="padding-top: 20px">
     
-    <div class='row' style='width:93%'>
+    <div class='row' style='width:100%'>
         <div class="col3">
             <h10><b>AL SANAWABAR SCHOOL </b></h10><br>
             <small> Manaseer School Road, P.o Box 1781</small><br>
@@ -44,15 +44,19 @@
         <div class="col3" style="float: right;">
             <p id="feedate" style="float:right;"></p>
         </div>
-    <div>
-    <div class='row'>
+    </div>
+
+    <div class='row' id='academic_year_div'>
         <div class='col3' id='debug'></div>
-        <div class='col3' id='academic_year_div'>
-            <label><strong>Academic Year</strong></label>
-            <select id='academic_years'></select>
+        <div class='col3'>
+            <div id='label_select'>
+                <label><strong>Academic Year </strong><strong id='academic_year_label' hidden>2020 - 2021 </strong> </label>
+                <select id='academic_years' onchange='update_academic_year_label()'></select>
+            </div>
         </div>
         <div class='col3'></div>
     </div>
+    <div class='row'>
         <table id="feeTable" class="table table-striped table-bordered student-list" cellspacing="0" width="100%">
             <colgroup>
                 <col class="backgroundGradeSelect" />
@@ -62,42 +66,28 @@
                 <col class="backgroundTuition"/>
                 <col class="backgroundTotal" />
                 <col class="backgroundTotal" />
-                <col style="background: #ffffff"
+                <col style="background: #ffffff">
             </colgroup>
             <thead align="center">
             <tr>
-                <th class="th-sm" rowspan="2"><strong>GRADE <br> الصف </strong>
-                </th>
-                <th class="th-sm background1stInstallment" colspan="4" ><strong> 1ST INSTALLMENT <br> الدفعة الأولى</strong>
-
-                </th>
-                <th class="th-sm" rowspan="2"><strong><SPAN>2ND INSTALLMENT<br>الدفعة الثانية</SPAN></strong>
-                </th>
-
-                <th class="th-sm" rowspan="2"><strong> <SPAN>3RD INSTALLMENT <BR> الدفعة الثالثة </SPAN></strong>
-                </th>
-
-                <th class="th-sm" rowspan="2"><strong> <SPAN>TOTAL <br>المجموع </SPAN></strong>
-                </th>
-                <th class="th-sm" rowspan="2"><strong> <SPAN>TOTAL <br>TUITION FEES<br> مجموع الرسوم الدراسية </SPAN></strong>
-                </th>
-                <th class="th-sm" rowspan="2"><strong> <SPAN>MINIMUM <BR>1ST INSTALLMENT<br>الحد الأدنى من الدفعة الأولى</SPAN></strong>
-                </th>
+                <th class="th-sm" rowspan="2"><strong>GRADE <br> الصف </strong></th>
+                <th class="th-sm background1stInstallment" colspan="4" ><strong> 1ST INSTALLMENT <br> الدفعة الأولى</strong></th>
+                <th class="th-sm" rowspan="2"><strong><SPAN>2ND INSTALLMENT<br>الدفعة الثانية</SPAN></strong></th>
+                <th class="th-sm" rowspan="2"><strong> <SPAN>3RD INSTALLMENT <BR> الدفعة الثالثة </SPAN></strong></th>
+                <th class="th-sm" rowspan="2"><strong> <SPAN>TOTAL <br>المجموع </SPAN></strong></th>
+                <th class="th-sm" rowspan="2"><strong> <SPAN>TOTAL <br>TUITION FEES<br> مجموع الرسوم الدراسية </SPAN></strong></th>
+                <th class="th-sm" rowspan="2"><strong> <SPAN>MINIMUM <BR>1ST INSTALLMENT<br>الحد الأدنى من الدفعة الأولى</SPAN></strong></th>
             </tr>
             <tr>
-                <th class="th-sm" ><strong>TUITION FEES<br>الرسوم الدراسية</strong>
-                </th>
-                <th class="th-sm"><strong>BOOKS<br>رسوم الكتب</strong>
-                </th>
-                <th class="th-sm"><strong>UNIFORMS<br>رسوم اللباس</strong>
-                </th>
-                <th class="th-sm"><strong>BUS<br>رسوم الحافلة</strong>
-                </th>
+                <td class="th-sm" >TUITION FEES<br>الرسوم الدراسية</td>
+                <td class="th-sm">BOOKS<br>رسوم الكتب</td>
+                <td class="th-sm">UNIFORMS<br>رسوم اللباس</td>
+                <td class="th-sm">BUS<br>رسوم الحافلة</td>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>
+                <td class='name'>
                     <select class="browser-default custom-select backgroundGradeSelect"
                             onchange='applyfees(this.options[this.selectedIndex].text); '>
                         <option value="" disabled selected> Grade</option>
@@ -139,44 +129,31 @@
         <button onclick="addstudent()" id="addstudent" title="Add Student" class="btn btn-sm "> &#43; Add Student
         </button>
         <button type="button" class="btn btn-primary btn-sm" id='printbtn'
-            onclick="printJS({printable: 'printFee', type: 'html', documentTitle: 'Fees Structure - بُنية الرسوم', header: 'Fees Structure - بنية الرسوم', headerStyle: 'font-weight: 300px; text-align:center' ,ignoreElements: ['addstudent', 'delstudent', 'noBus','printbtn'],targetStyles: '*',  css: 'css/print.css'})">
+            onclick="printJS({printable: 'printFee', type: 'html', documentTitle: 'Fees Structure - بُنية الرسوم', header: 'Fees Structure - بنية الرسوم', headerStyle: 'font-weight: 300px; text-align:center' ,ignoreElements: ['addstudent', 'delstudent', 'noBus','printbtn','academic_years'],targetStyles: '*',  css: 'css/print.css'})">
             PRINT
         </button>
-
-        <div>
-            <div >
-                <div style="float: left; max-width: 500px">
-                    <br>
-                    <p><u>Note</u></p>
-                    <ul style="list-style-type:disc;">
-                        <li>Book fee, Uniform Fee & Bus fee may be increased (subject to Ministry's approval)</li>
-                        <li>A placement fee of AED 500 will be applicable and will be offset against the Tuition Fees
-                            for the first Term
-                        </li>
-                        <li>The Tuition Fees should be paid in 3(Three) installments at the beginning of every
-                            trimester
-                        </li>
-                        <li>The Transportation fees (if applicable), should be paid at the beginning of the academic
-                            year.
-                        </li>
-                    </ul>
-                </div>
-                <div style="float:right; max-width: 600px">
-                    <br>
-                    <p style="float: right;"><u>ملاحظة</u></p><br><br>
-                    <ul style="list-style-type:disc; text-align: right; direction:rtl;">
-                        <li>قد يتم زيادة رسوم الكتب، اللباس، و المواصلات (وذلك بعد الحصول على موافقة الوزارة)</li>
-                        <li>سيتم استحقاق رسوم تسجيل بقيمة 500 درهم وسيتم إضافتها لاحقاً للرسوم الدراسية للفصل الأول</li>
-                        <li>يجب دفع الرسوم الدراسية على 3 أقساط (دفعة عند بداية كل فصل)</li>
-                        <li>يجب دفع رسوم المواصلات (في حال استحقاقها) في بداية العام الدراسي</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
     </div>
-</div>
-
+    <br>
+    <div class='row'>
+        <div style="float: left; width:50%; display:inline-block;">
+            <p><u>Note</u></p>
+            <ul style="list-style-type:disc;">
+                <li>Book fee, Uniform Fee & Bus fee may be increased (subject to Ministry's approval)</li>
+                <li>A placement fee of AED 500 will be applicable and will be offset against the Tuition Fees for the first Term</li>
+                <li>The Tuition Fees should be paid in 3(Three) installments at the beginning of every trimester</li>
+                <li>The Transportation fees (if applicable), should be paid at the beginning of the academic year.</li>
+            </ul>
+        </div>
+        <div style="float:right; width:50%; display:inline-block;">
+            <p style="float: right;"><u>ملاحظة</u></p><br><br>
+            <ul style="list-style-type:disc; text-align: right; direction:rtl;">
+                <li>قد يتم زيادة رسوم الكتب، اللباس، و المواصلات (وذلك بعد الحصول على موافقة الوزارة)</li>
+                <li>سيتم استحقاق رسوم تسجيل بقيمة 500 درهم وسيتم إضافتها لاحقاً للرسوم الدراسية للفصل الأول</li>
+                <li>يجب دفع الرسوم الدراسية على 3 أقساط (دفعة عند بداية كل فصل)</li>
+                <li>يجب دفع رسوم المواصلات (في حال استحقاقها) في بداية العام الدراسي</li>
+            </ul>
+        </div>
+    </div>
 <!--java script-->
 
 <script>
@@ -185,9 +162,9 @@
     document.getElementById("feedate").innerHTML = date.toDateString();
 
     // Initiate Academic Years dropdown
-    // function fill_academic_year(){
-    //     document.getElementById('academic_years_en_label').innerHTML = document.getElementById('academic_years_en').options[ document.getElementById('academic_years_en').selectedIndex].text
-    // }
+    function update_academic_year_label(){
+        document.getElementById('academic_year_label').innerHTML = document.getElementById('academic_years').options[ document.getElementById('academic_years').selectedIndex].text
+    }
     
     let yearsArray = [];
     httpyears = new XMLHttpRequest();
