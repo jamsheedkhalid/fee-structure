@@ -371,7 +371,7 @@
         row.cells[4].innerHTML = "<label  class=form-control id='bus" + rowId + "' >3500</label>";
         row.cells[5].innerHTML = "<label  class=form-control id='installment2" + rowId + "' >9500</label>";
         row.cells[6].innerHTML = "<label   class=form-control id='thirdInstallment" + rowId + "'>11210</label>";
-        row.cells[7].innerHTML = "<label   class=form-control id='total" + rowId + "'>33210</label>";
+        row.cells[7].innerHTML = "<label   class=form-control id='total" + rowId + "'>33710</label>";
         row.cells[8].innerHTML = "<label   class=form-control id='firstMinimum" + rowId + "'>28190</label>";
         row.cells[9].innerHTML = "<label   class=form-control id='firstMinimum" + rowId + "'>9500</label>";
     }
